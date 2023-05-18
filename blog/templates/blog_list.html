@@ -1,0 +1,33 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block content %}
+<section class="inner-blog pt-120 pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% for blog in blogs %}
+                    <div class="bsingle__post mb-50">
+                        <div class="bsingle__post-thumb">
+                            <img src="{{blog.main_image.url}}" alt="">
+                        </div>
+                        <div class="bsingle__content">
+                            <div class="meta-info">
+                                <ul>
+                                    <li><a href="#"><i class="far fa-user"></i>{{blog.author}}</a></li>
+                                </ul>
+                            </div>
+                            <h2><a href="/blog/detail/{{blog.id}}">{{blog.title}}</a></h2>
+                            <div class="blog__btn">
+                                <a href="/blog/detail/{{blog.id}}" class="btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

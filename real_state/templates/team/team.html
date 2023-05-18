@@ -1,0 +1,53 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block content %}
+            <!-- breadcrumb-area -->
+            <section class="breadcrumb-area d-flex align-items-center" style="background-image:url(../../static/img/test-bg.jpg)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+                            <div class="breadcrumb-wrap text-center">
+                                <div class="breadcrumb-title mb-30">
+                                    <h2>Nuestro Equipo</h2>                                    
+                                </div>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Team</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- breadcrumb-area-end -->
+			<!-- team-area -->
+            <section id="team" class="team-area pt-120 pb-90">             
+                <div class="container">                 
+                    <div class="row">
+                        {% for member in members %}
+                            <div class="col-lg-4 col-md-6">
+                                <div class="single-team text-center mb-30 wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                                    <div class="team-thumb">
+                                        <img src="{{member.image.url}}" style="width: 300px; height: 300px; object-fit: cover;" alt="img">
+                                    </div>
+                                    <div class="team-info">
+                                        <h4>{{member.name}}</h4>
+                                        <span>{{member.occupation}}</span>
+                                        <div class="team-social mt-15">
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor  %}
+                    </div>
+                </div>
+            </section>
+            <!-- team-area-end -->  
+{% endblock %}

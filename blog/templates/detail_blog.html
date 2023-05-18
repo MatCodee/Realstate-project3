@@ -1,0 +1,109 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block content %}
+<section class="inner-blog b-details-p pt-120 pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog-details-wrap">
+                <div class="bsingle__post-thumb mb-30">
+                        <img src="img/blog/inner_b1.jpg" alt="">
+                    </div>
+                    <div class="meta__info">
+                        <ul>
+                            <li><a href="#"><i class="far fa-user"></i>{{blog.author}}</a></li>
+                        </ul>
+                    </div>
+                    <div class="details__content pb-50">
+                        <h2>{{blog.title}}</h2>
+                        <img src="{{blog.main_image.url}}" alt="">
+                        <p>{{blog.description}}</p>
+
+                        {% for paragraph, image in combined_data %}
+                            <p>{{ paragraph.paragraph }}</p>
+                            <img src="{{ image.image.url }}" alt="Blog Image">
+                        {% endfor %}
+                                                
+                    </div>
+                    
+                    <div class="related__post mt-45 mb-85">
+                        <div class="post-title">
+                            <h4>Related Post</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="related-post-wrap mb-30">
+                                    <div class="post-thumb">
+                                        <img src="img/blog/b_details03.jpg" alt="">
+                                    </div>
+                                    <div class="rp__content">
+                                        <h3><a href="#">A series of iOS 7 inspire
+                                                vector icons.</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or
+                                            incididunt ut labore et dolore.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="related-post-wrap mb-30">
+                                    <div class="post-thumb">
+                                        <img src="img/blog/b_details04.jpg" alt="">
+                                    </div>
+                                    <div class="rp__content">
+                                        <h3><a href="#">Sed ut perspiciatis unde omnis iste natus.</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or
+                                            incididunt ut labore et dolore.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <aside>
+                    <div class="widget mb-40">
+                        <div class="widget-title text-center">
+                            <h4>Search</h4>
+                        </div>
+                        <div class="slidebar__form">
+                            <form action="#">
+                                <input type="text" placeholder="Search your keyword...">
+                                <button><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+        
+                    <div class="widget mb-40">
+                        <div class="widget-title text-center">
+                            <h4>Follow Us</h4>
+                        </div>
+                        <div class="widget-social text-center">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-wordpress"></i></a>
+                        </div>
+                    </div>
+                    <div class="widget mb-40">
+                        <div class="widget-title text-center">
+                            <h4>Categories</h4>
+                        </div>
+                        <ul class="cat__list">
+                            <li><a href="#">Lifestyle <span>(05)</span></a></li>
+                            <li><a href="#">Travel <span>(34)</span></a></li>
+                            <li><a href="#">Fashion <span>(89)</span></a></li>
+                            <li><a href="#">Music <span>(92)</span></a></li>
+                            <li><a href="#">Branding <span>(56)</span></a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

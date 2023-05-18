@@ -1,0 +1,405 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block content %}
+        <!-- main-area -->
+        <main>
+            <!-- slider-area -->
+            <section id="home" class="slider-area fix p-relative">
+               
+                <div class="slider-active">
+				<div class="single-slider slider-bg d-flex align-items-center" style="background-image:url(../../static/img/main_img1.jpg)">
+                        <div class="container">
+                            <div class="row">							
+                                <div class="col-lg-8">
+                                    <div class="slider-content s-slider-content text-left">
+                                        <h2 data-animation="fadeInUp" data-delay=".4s">Discover  Modern<br>Building Design.</h2>
+                                         <ul data-animation="fadeInUp" data-delay=".6s">
+                                            <li>
+                                               <i class="fas fa-bed"></i>
+                                                <span>3 Bedrooms.</span>
+                                            </li>
+                                            <li>
+                                               <i class="fal fa-pencil-ruler"></i>
+                                                <span>Square Feet </span>
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-bath"></i>
+                                                <span>Bedrooms</span>
+                                            </li>
+											<li>
+                                               <i class="fas fa-car"></i>
+                                                <span>Car parking</span>
+                                            </li>
+                                        </ul>
+                                        <div class="slider-btn mt-55">                                          
+                                            <a href="#" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Get a Quote</a>
+											<a href="https://www.youtube.com/watch?v=vKSA_idPZkc" class="video-i popup-video" data-animation="fadeInUp" data-delay=".8s" style="animation-delay: 0.8s;" tabindex="0"><i class="fas fa-play"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="col-lg-4">
+									<div class="slider-price">
+										<h3>Price:</h3>
+										<h2>$1,786.80<h2>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-slider slider-bg d-flex align-items-center" style="background-image:url(../../static/img/main_img2.jpg)">
+                        <div class="container">
+                            <div class="row">							
+                                <div class="col-lg-8">
+                                    <div class="slider-content s-slider-content text-left">
+                                        <h2 data-animation="fadeInUp" data-delay=".4s">Discover  Modern<br>Building Design.</h2>
+                                        <ul data-animation="fadeInUp" data-delay=".6s">
+                                            <li>
+                                               <i class="fas fa-bed"></i>
+                                                <span>3 Bedrooms.</span>
+                                            </li>
+                                            <li>
+                                               <i class="fal fa-pencil-ruler"></i>
+                                                <span>Square Feet </span>
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-bath"></i>
+                                                <span>Bedrooms</span>
+                                            </li>
+											<li>
+                                               <i class="fas fa-car"></i>
+                                                <span>Car parking</span>
+                                            </li>
+                                        </ul>
+                                        <div class="slider-btn mt-55">                                          
+                                            <a href="#" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Get a Quote</a>
+											<a href="https://www.youtube.com/watch?v=vKSA_idPZkc" class="video-i popup-video" data-animation="fadeInUp" data-delay=".8s" style="animation-delay: 0.8s;" tabindex="0"><i class="fas fa-play"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="col-lg-4">
+									<div class="slider-price">
+										<h3>Price:</h3>
+										<h2>$2,786.80<h2>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                </div>
+               
+            </section>
+            <!-- slider-area-end -->
+                        <!-- counter-area-end -->	
+			<section id="services" class="services-area pt-120 pb-90">
+  
+                <div class="container">                   
+                    <div class="breadcrumb-wrap text-center">
+                        <div class=" mb-30">
+                            <h2 class="text-dark">Propiedades</h2>                                    
+                        </div>
+                    </div>                                   
+ 
+                    <div class="row services-active2">
+                        {% for p in properties %}
+                        <div class="col-xl-4">
+                            <div class="single-services mb-30">
+                                <div class="services-thumb">
+                                    <a class="gallery-link popup-image" href="{{p.main_image.url}}">
+                                    <img src="{{p.main_image.url}}" alt="img">
+                                    </a>
+                                </div>
+                                <div class="services-content">                                   
+                                    <small>{{p.category}}</small>
+                                    <h4><a href="/detail/{{p.id}}">{{p.title}}</a></h4>
+                                    <h3>Precio ${{p.price}}</h3>                                   
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}                       
+                    </div>
+                </div>
+            </section>
+			<!-- choose-area -->
+			<!-- about-area -->
+            <section id="about" class="about-area about-p pt-120 pb-120 p-relative">
+                <div class="container">
+                    <div class="row align-items-center">
+					<div class="col-lg-6">
+                            <div class="s-about-img p-relative">
+                                <img src="{% static 'img/about_img02.png' %}" alt="img" class="w-100">
+                                <div class="about-text second-about">
+                                    <span>35 years of <br> experience</span>
+                                </div>
+                            </div>
+                        </div>
+					<div class="col-lg-6">
+                            <div class="about-content s-about-content pl-30">
+                                <div class="about-title second-atitle">
+                                    <span>About Us</span>
+                                    <h2>Welcome To Our Relxtower</h2>
+                                    <p><span></span>We provide an essential service for you</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
+                                omnis iste natus error sit voluptatem accusantium doloremque laudantiue.</p>
+                                <a href="#" class="btn">Get Started</a>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </section>
+            <!-- about-area-end -->
+			
+			<!-- counter-area -->
+            <div class="counter-area pt-120 pb-90" style="background-image:url(../../static/img/count-bg.jpg); background-size:cover;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-counter text-center mb-30 wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+								<i class="fal fa-pencil-ruler"></i>
+                                <div class="counter p-relative">
+                                    <span class="count">2543</span>                                   
+                                </div>
+                                <p>Square Feet</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-counter text-center mb-30 wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+							<i class="fas fa-bath"></i>
+                                <div class="counter p-relative">
+                                    <span class="count">4</span>                                   
+                                </div>
+                                <p>Bathrooms</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-counter text-center mb-30 wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+							<i class="fas fa-bed"></i>
+                                <div class="counter p-relative">
+                                    <span class="count">6</span>                                   
+                                </div>
+                                <p>Bedrooms</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="single-counter text-center mb-30 wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+							<i class="fas fa-car"></i>
+                                <div class="counter p-relative">
+                                    <span class="count">4</span>                                   
+                                </div>
+                                <p>Car parking</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="choose-area pt-120 pb-120 p-relative" style="background:#f5f5f5;">             
+                <div class="chosse-img wow fadeInRight animated" data-animation="fadeInRight animated" data-delay=".2s"></div>
+                <div class="container">
+                    <div class="row">
+						<div class="col-xl-6">
+							 <div class="s-about-img p-relative">
+								<img src="{% static 'img/second.png' %}" alt="img">
+								</div>
+						 </div>
+                        <div class="col-xl-6">
+                            <div class="choose-wrap">
+                                <div class="section-title w-title left-align mb-35 wow fadeInDown animated" data-animation="fadeInDown animated" data-delay=".2s">
+                                    <span>Best Place</span>
+									<h2>For Sell Properties</h2>
+                                </div>
+                                <div class="choose-content wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et fames acturpis egestas. Vestibulum tortor quam, feugiat vitae, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. mivitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien.</p>
+									
+                                    <div class="choose-list mt-20 mb-20">
+                                        <ul>
+                                            <li>
+                                               <i class="fas fa-bed"></i>
+                                                <span>3 Bedrooms.</span>
+                                            </li>
+                                            <li>
+                                               <i class="fal fa-pencil-ruler"></i>
+                                                <span>Square Feet </span>
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-bath"></i>
+                                                <span>Bedrooms</span>
+                                            </li>
+											<li>
+                                               <i class="fas fa-car"></i>
+                                                <span>Car parking</span>
+                                            </li>
+                                        </ul>
+                                    </div>									
+									<h3>Price:</h3>
+									<h2>$1,786.80</h2>
+                                    <div class="choose-btn mt-30">
+                                        <a href="#" class="btn">Contact Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						 
+                    </div>
+					
+                </div>
+            </section>
+            <!-- choose-area-end -->
+			<!-- services-area -->
+            <section id="services" class="services-area services-bg services-two pt-120 pb-90">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-lg-10">
+                            <div class="section-title text-center pl-40 pr-40 mb-80 wow fadeInDown animated" data-animation="fadeInDown animated" data-delay=".2s">
+                                <span>Nuestro Servicio</span>
+                                <h2>Que Ofrecemos </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+					
+						<div class="col-lg-4 col-md-6 mb-30">
+                            <div class="s-single-services wow fadeInUp  animated" data-animation="fadeInDown animated" data-delay=".2s" style="visibility: visible; animation-name: fadeInUp;">
+                                <div class="services-ico2">
+                                 <i class="fad fa-megaphone"></i>
+                                </div>
+                                <div class="second-services-content2">
+                                    <h5>Dedicated Production & Planning Teams </h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore. </p>
+									<a href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-4 col-md-6 mb-30">
+                            <div class="s-single-services wow fadeInUp  animated" data-animation="fadeInDown animated" data-delay=".2s" style="visibility: visible; animation-name: fadeInUp;">
+                                <div class="services-ico2">
+                                   <i class="far fa-building"></i>
+                                </div>
+                                <div class="second-services-content2">
+                                    <h5>We’re Here To Make You Successful</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore. </p>
+									<a href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-4 col-md-6 mb-30">
+                            <div class="s-single-services wow fadeInUp  animated" data-animation="fadeInDown animated" data-delay=".2s" style="visibility: visible; animation-name: fadeInUp;">
+                                <div class="services-ico2">
+                                  <i class="fad fa-home"></i>
+                                </div>
+                                <div class="second-services-content2">
+                                    <h5>Premium, Fresh Cuisine Made Onsite</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore. </p>
+									<a href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-4 col-md-6 mb-30">
+                            <div class="s-single-services wow fadeInUp  animated" data-animation="fadeInDown animated" data-delay=".2s" style="visibility: visible; animation-name: fadeInUp;">
+                                <div class="services-ico2">
+                                 <i class="fas fa-search-location"></i>
+                                </div>
+                                <div class="second-services-content2">
+                                    <h5>Flexible, Contemporary & Included Spaces </h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore. </p>
+									<a href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-4 col-md-6 mb-30">
+                            <div class="s-single-services wow fadeInUp  animated" data-animation="fadeInDown animated" data-delay=".2s" style="visibility: visible; animation-name: fadeInUp;">
+                                <div class="services-ico2">
+                                   <i class="far fa-car-garage"></i>
+                                </div>
+                                <div class="second-services-content2">
+                                    <h5>Human-Centered Design Friendly Spaces</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore. </p>
+									<a href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-4 col-md-6 mb-30">
+                            <div class="s-single-services wow fadeInUp  animated" data-animation="fadeInDown animated" data-delay=".2s" style="visibility: visible; animation-name: fadeInUp;">
+                                <div class="services-ico2">
+                                  <i class="fas fa-comments-alt"></i>
+                                </div>
+                                <div class="second-services-content2">
+                                    <h5>Broker Cutting-Edge And Technology</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore. </p>
+									<a href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    
+                </div>
+            </section>
+            <!-- services-area-end -->
+			<!-- cta-area -->
+            <section class="cta-area cta-bg pt-120 pb-120" style="background-image:url(../../static/img/cta_bg02.jpg)">
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-12">
+                            <div class="section-title cta-title wow fadeInLeft animated" data-animation="fadeInDown animated" data-delay=".2s">
+								<p>Don’t hestitate to contact us</p>
+                                <h2>MAKE AN APPOINTMENT NOW</h2>
+								<h3>666 888 0000</h3>
+								 <div class="cta-btn s-cta-btn wow fadeInRight animated mt-30" data-animation="fadeInDown animated" data-delay=".2s">
+									<a href="#" class="btn">Contact Us</a>
+								</div>
+                            </div>
+                                             
+                        </div>
+					
+                    </div>
+                </div>
+            </section>
+            <!-- cta-area-end -->			
+
+			
+		
+           
+            <!-- blog-area -->
+            <section id="blog" class="blog-area  p-relative pt-120 pb-90">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-lg-10">
+                            <div class="section-title text-center mb-80 wow fadeInDown animated" data-animation="fadeInDown animated" data-delay=".2s">
+                                <span>Nuevo</span>
+                                <h2>Ultimos Blog</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for blog in blogs %}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-post mb-30 wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                                <div class="blog-thumb">
+                                    <a href="/blog/detail/{{blog.id}}"><img src="{{blog.main_image.url}}" alt="img"></a>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="b-meta mb-20">
+                                        <ul>
+                                            <li><a href="#">Autor {{blog.author}} .</a></li>
+                                            <li><a href="#">5 Dec 2019 .</a></li>
+                                        </ul>
+                                    </div>
+                                    <h4><a href="/blog/detail/{{blog.id}}">{{blog.title}}</a></h4>                                    
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+    
+                    </div>
+                </div>
+            </section>
+{% endblock %}

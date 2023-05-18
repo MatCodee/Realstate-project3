@@ -1,0 +1,112 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block content %}
+<section class="breadcrumb-area d-flex align-items-center" style="background-image:url(../../static/img/test-bg.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+                <div class="breadcrumb-wrap text-center">
+                    <div class="breadcrumb-title mb-30">
+                        <h2>Detalles de la Propiedad</h2>                                    
+                    </div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Detalle de Propiedad</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb-area-end -->
+<!-- choose-area -->
+<section class="choose-area pt-120 pb-120 p-relative">             
+    <div class="chosse-img wow fadeInRight animated" data-animation="fadeInRight animated" data-delay=".2s"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="s-about-img p-relative">
+                    <img src="{{property.main_image.url}}" class="w-100 h-100" alt="img">
+                </div>
+                <div class="row services-active mt-4">
+                    {% for image in images %}
+                        <div class="col-12">
+                            <div class="single-services">
+                                <div class="services-thumb">
+                                    <a class="gallery-link popup-image" href="{{image.image.url}}">
+                                    <img src="{{image.image.url}}" alt="img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+             </div>
+            <div class="col-xl-6">
+                <div class="choose-wrap">
+                    <div class="section-title w-title left-align mb-35 wow fadeInDown animated" data-animation="fadeInDown animated" data-delay=".2s">
+                        <span>{{property.category}}</span>
+                        <h2>{{property.title}}</h2>
+                    </div>
+                    <div class="choose-content wow fadeInUp animated" data-animation="fadeInDown animated" data-delay=".2s">
+                        <p>{{property.description}}</p>
+                        
+                        <div class="choose-list mt-20 mb-20">
+                            <ul>
+                                <li>
+                                   <i class="fas fa-bed"></i>
+                                    <span>{{property.bedrooms}} Habitaciones.</span>
+                                </li>
+                                <li>
+                                   <i class="fal fa-pencil-ruler"></i>
+                                    <span>Square Feet </span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-bath"></i>
+                                    <span>{{property.bathrooms}} Baños</span>
+                                </li>
+                                <li>
+                                   <i class="fas fa-car"></i>
+                                    <span>{{property.car_parking}} Estacionamiento</span>
+                                </li>
+                            </ul>
+                        </div>									
+                        <h3>Precio:</h3>
+                        <h2>${{property.price}}</h2>
+                        <div class="choose-btn mt-30">
+                            <a href="/contact/" class="btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             
+        </div>
+        
+    </div>
+</section>
+
+<!-- choose-area-end -->
+    
+<!-- cta-area -->
+<section class="cta-area cta-bg pt-120 pb-120" style="background-image:url(../../static/img/cta_bg02.jpg)">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-12">
+                <div class="section-title cta-title wow fadeInLeft animated" data-animation="fadeInDown animated" data-delay=".2s">
+                    <p>Don’t hestitate to contact us</p>
+                    <h2>MAKE AN APPOINTMENT NOW</h2>
+                    <h3>666 888 0000</h3>
+                     <div class="cta-btn s-cta-btn wow fadeInRight animated mt-30" data-animation="fadeInDown animated" data-delay=".2s">
+                        <a href="/contact/" class="btn">Contáctanos</a>
+                    </div>
+                </div>
+                                 
+            </div>
+        
+        </div>
+    </div>
+</section>
+{% endblock %}
