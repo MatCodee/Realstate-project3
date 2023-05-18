@@ -28,14 +28,8 @@ def ContactView(request):
             phone = form.cleaned_data['phone']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            
-            print(form)
-            print("Enviando el email")
-            
             subject = 'Nuevo mensaje de contacto'
             content = f'Nombre: {fullname}\nTeléfono: {phone}\nCorreo electrónico: {email}\nMensaje: {message}'
-            print(subject)
-            print(content)
             send_mail(subject, content, settings.EMAIL_HOST_USER, ['matias.altamiranove@gmail.com'], fail_silently=False)
             
             # Redireccionar a una página de éxito o mostrar un mensaje de éxito
