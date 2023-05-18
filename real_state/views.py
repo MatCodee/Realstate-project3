@@ -7,7 +7,7 @@ from blog.models import Blog
 # forms
 from .forms import ContactForm
 
-def HomeView(request):
+def HomeView(request):  
     context = {}
     properties = Property.objects.all()
     context['properties'] = properties
