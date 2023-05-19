@@ -97,14 +97,25 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 # Implementacion de la base de datos: 
 
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if env.bool('DEV_ENVIRONT', default=False):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': env('PGDATABASE'),
+            'USER': env('PGUSER'),
+            'PASSWORD': env('PGPASSWORD'),
+            'HOST': env('PGHOST'),
+            'PORT': env('PGPORT'),
+        }
+    }
+
 
 
 # Password validation
@@ -161,7 +172,7 @@ AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')
     
-if env.bool('DEBUG', default=False):
+if env.bool('DEV_ENVIRONT', default=False):
     STATICFILES_DIRS = [
         BASE_DIR / "static",
     ]
