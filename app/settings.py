@@ -33,8 +33,6 @@ SECRET_KEY = env('SECRET_KEY')
 #DEBUG = True
 DEBUG = env.bool('DEBUG', default=False)
 
-
-
 ALLOWED_HOSTS = ["*"]
 
 
@@ -97,7 +95,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Establece la configuracion de Postgresql:
 
 
-# Establece la configuracion por defectos
+# Implementacion de la base de datos: 
+
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -154,12 +155,13 @@ USE_TZ = True
 
 # configuracion de AWS para la subida de imagenes S3 y la configuracion de forma local
 
+    
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')
     
-if env('DEBUG'):
+if env.bool('DEBUG', default=False):
     STATICFILES_DIRS = [
         BASE_DIR / "static",
     ]
@@ -168,21 +170,29 @@ if env('DEBUG'):
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 else:
+    print("Entro aqui")
+    STATICFILES_DIRS = [
+        BASE_DIR / "static",
+    ]
+    STATIC_URL = '/static/'
+    STATIC_ROOT = "staticfiles"    
     # Configuración de almacenamiento estático en AWS S3
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    #STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+    #STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-    STATIC_ROOT = "staticfiles"
+
     # Configuración de almacenamiento de archivos de medios en AWS S3
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    #DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+    PUBLIC_MEDIA_LOCATION = 'media_cdn'
 
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    DEFAULT_FILE_STORAGE = 'app.storage_settigns.MediaStorage'  
 
     # Configuración adicional opcional
     AWS_S3_OBJECT_PARAMETERS = {
         'CacheControl': 'max-age=86400',
     }
-    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+

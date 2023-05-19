@@ -44,20 +44,10 @@ class Property(models.Model):
     def __str__(self):
         return self.title
     
-    
-    def delete(self, *args, **kwargs):
-        # Eliminar la imagen principal de S3
-        self.delete_s3_image(self.main_image)
-        super().delete(*args, **kwargs)
+    def delete(self):
+        self.main_image.delete(save=False)
+        super().delete()
 
-    def delete_s3_image(self, image_field):
-        if image_field and not DEBUG:
-            s3 = boto3.resource('s3')
-            bucket = AWS_STORAGE_BUCKET_NAME  
-            s3_key = image_field.name
-
-            s3.Object(bucket, s3_key).delete()
-    
     
 
 
@@ -68,16 +58,6 @@ class AdditionalImage(models.Model):
     def __str__(self):
         return f"Additional Image for {self.property.title}"
     
-    def delete(self, *args, **kwargs):
-        # Eliminar la imagen adicional de S3
-        self.delete_s3_image(self.image)
-
-        super().delete(*args, **kwargs)
-
-    def delete_s3_image(self, image_field):
-        if image_field and not DEBUG:
-            s3 = boto3.resource('s3')
-            bucket = AWS_STORAGE_BUCKET_NAME  
-            s3_key = image_field.name
-
-            s3.Object(bucket, s3_key).delete()
+    def delete(self):
+        self.image.delete(save=False)
+        super().delete()
