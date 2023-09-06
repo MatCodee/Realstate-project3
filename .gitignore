@@ -2,3 +2,8 @@ doc/doc.txt
 doc/falta.txt
 env
 .env
+
+
+app/.env
+
+db.sqlite3
